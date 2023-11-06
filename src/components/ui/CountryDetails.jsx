@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { BiArrowBack } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { useCountries } from "../../hooks/useCountries";
+import LoadingSpinner from "../utils/LoadingSpinner";
 
 const CountryDetails = () => {
   const countryDetails = useCountries();
   const navigate = useNavigate();
 
   if (countryDetails.isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   if (countryDetails.isError) {

@@ -1,15 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 import styled from "styled-components";
-import Countries from "./components/ui/Countries";
-import Header from "./components/ui/Header";
-// import Overlay from "./components/utils/Overlay";
-import { useGlobalContext } from "./services/GlobalContext";
-// import useCountries from "./hooks/useCountries";
 import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import Countries from "./components/ui/Countries";
+import Header from "./components/ui/Header";
+import { useGlobalContext } from "./services/GlobalContext";
 import { baseUrl, fetchCountries } from "./services/countriesData";
-
-// export const baseUrl = "https://restcountries.com/v3.1/all";
+import Overlay from "./components/utils/Overlay";
 
 const getCountries = {
   queryKey: ["countriesApi"],
@@ -22,7 +19,10 @@ export const loader = (queryClient) => async () => {
 };
 
 function App() {
-  const { dispatch } = useGlobalContext();
+  const {
+    dispatch,
+    state: { showFilters },
+  } = useGlobalContext();
   const data = useLoaderData();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function App() {
     <StyledApp>
       <Header />
       <Countries />
-      {/* <Overlay /> */}
+      {showFilters && <Overlay />}
     </StyledApp>
   );
 }

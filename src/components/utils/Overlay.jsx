@@ -6,7 +6,7 @@ const Overlay = () => {
   return (
     <StyledOverlay
       className="overlay"
-      // onClick={() => dispatch({ type: "set_hideFilters" })}
+      onClick={() => dispatch({ type: "set_hideFilters" })}
     ></StyledOverlay>
   );
 };
@@ -20,6 +20,6 @@ const StyledOverlay = styled.div`
   background-color: transparent;
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
 `;

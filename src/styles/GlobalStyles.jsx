@@ -91,6 +91,10 @@ a{
   }
 }
 
+/* img{
+  z-index: -11;
+} */
+
 `;
 
 export default GlobalStyles;

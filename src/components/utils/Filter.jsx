@@ -10,22 +10,6 @@ export function Filter() {
     dispatch,
   } = useGlobalContext();
 
-  // const filterRef = useRef(null);
-
-  // useEffect(() => {
-  //   const handleOutsideClick = (e) => {
-  //     if (filterRef.current && !filterRef.current.contains(e.target)) {
-  //       dispatch({ type: "set_hideFilters" });
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleOutsideClick);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleOutsideClick);
-  //   };
-  // }, [dispatch]);
-
   return (
     <StyledFilter type={showFilters.toString()}>
       <div
@@ -80,7 +64,6 @@ const StyledFilter = styled.div`
   z-index: 11;
 
   .title {
-    /* border: 2px solid red; */
     padding: 0.25rem 1rem;
     display: flex;
     justify-content: space-between;
